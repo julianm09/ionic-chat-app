@@ -1,7 +1,9 @@
 import "./ExploreContainer.css";
 import styled from "styled-components";
+import { app } from "../config/firebase";
 
 const Chat: React.FC = ({}) => {
+  console.log(app)
   return (
     <Cont>
       <ChatBox></ChatBox>

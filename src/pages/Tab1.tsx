@@ -6,16 +6,20 @@ import {
   IonToolbar,
 } from "@ionic/react";
 import Chat from "../components/Chat";
-import ExploreContainer from "../components/ExploreContainer";
+import SignOutButton from "../components/SignOutButton";
 import "./Tab1.css";
 
-const Tab1: React.FC = () => {
+interface Props {
+  handleSignOut: (e: any) => void;
+}
+
+const Tab1: React.FC<Props> = ({ handleSignOut }) => {
   return (
     <IonPage>
       <IonHeader>
-        <IonToolbar>
-          <IonTitle>Tab 1</IonTitle>
-        </IonToolbar>
+
+          <SignOutButton handleSignOut={handleSignOut}/>
+
       </IonHeader>
       <IonContent fullscreen>
         <Chat />

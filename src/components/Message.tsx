@@ -15,7 +15,6 @@ const Message: React.FC<Props> = ({ msg, time, name, uid }) => {
   console.log(time);
   const [user] = useAuthState(auth);
 
-  const [hover, setHover] = useState(false)
 
   return (
     <Cont
@@ -46,6 +45,7 @@ const Cont = styled.div`
   justify-content: flex-start;
   align-items: flex-start;
   flex-direction: column;
+  z-index: -100;
 `;
 
 const Text = styled.div`

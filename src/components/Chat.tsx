@@ -44,7 +44,7 @@ const Chat: React.FC = ({}) => {
   };
 
   const messageRef = collection(db, "messages");
-  const q = query(messageRef, orderBy("createdAt"), limit(1000));
+  const q = query(messageRef, orderBy("createdAt"), limit(50));
 
   const [messages] = useCollectionData(q);
 
@@ -103,6 +103,7 @@ const ChatBox = styled(IonContent)`
   height: calc(100% - 120px);
   position: fixed;
   bottom: 70px;
+  z-index: 100;
 `;
 
 const ChatBar = styled.div`

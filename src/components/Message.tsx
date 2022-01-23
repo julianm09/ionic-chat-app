@@ -1,26 +1,8 @@
 import "./ExploreContainer.css";
 import styled from "styled-components";
-import { app } from "../config/firebase";
-import {
-  collection,
-  addDoc,
-  getDocs,
-  Firestore,
-  orderBy,
-  limit,
-  serverTimestamp,
-  query,
-  Timestamp,
-} from "firebase/firestore";
-import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
-import { db } from "../config/firebase";
-import { useEffect, useState } from "react";
-import { v4 as uuidv4 } from "uuid";
-import { useCollectionData } from "react-firebase-hooks/firestore";
 import { useAuthState } from "react-firebase-hooks/auth";
-
 import { auth } from "../config/firebase";
+import { useState } from "react";
 
 interface Props {
   msg: string;
@@ -33,12 +15,25 @@ const Message: React.FC<Props> = ({ msg, time, name, uid }) => {
   console.log(time);
   const [user] = useAuthState(auth);
 
+  const [hover, setHover] = useState(false)
+
   return (
-    <Cont>
-      <Name style={{ color: user?.uid === uid ? "#7878ff" : "white" }}>
-        {name}
-      </Name>
-      <Text>{msg}</Text>
+    <Cont
+      style={{
+        alignItems: user?.uid === uid ? "flex-end" : "flex-start",
+      }}
+    >
+      <Bubble
+        style={{
+          background:
+            user?.uid === uid
+              ? "linear-gradient(180deg, #1E70FF 0%, #0046BF 100%)"
+              : "linear-gradient(180deg, #02cc78 0%, #007354 100%)",
+        }}
+      >
+        <Name>{name}</Name>
+        <Text>{msg}</Text>
+      </Bubble>
     </Cont>
   );
 };
@@ -46,12 +41,10 @@ const Message: React.FC<Props> = ({ msg, time, name, uid }) => {
 export default Message;
 
 const Cont = styled.div`
-  padding: 20px;
   width: 100%;
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
-  border-top: 1px solid grey;
   flex-direction: column;
 `;
 
@@ -67,4 +60,10 @@ const Name = styled.div`
   margin-bottom: 5px;
 `;
 
-const Date = styled.div``;
+const Bubble = styled.div`
+  padding: 20px;
+  margin: 10px 20px;
+  border-radius: 25px;
+  box-shadow: 0 0 20px #ffffff8;
+  font-family: 'Outfit', sans-serif;
+`;

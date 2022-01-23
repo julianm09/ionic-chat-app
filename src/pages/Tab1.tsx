@@ -19,6 +19,7 @@ const Tab1: React.FC<Props> = ({ handleSignOut }) => {
     <IonPage>
       <IonHeader>
         <Header>
+          Julian Chat
           <SignOutButton handleSignOut={handleSignOut} />
         </Header>
       </IonHeader>
@@ -33,8 +34,9 @@ export default Tab1;
 
 const Header = styled.div`
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
   flex-direction: row;
   background: #24242c;
+  padding: 0 0 0 20px;
 `;

@@ -60,7 +60,7 @@ const Chat: React.FC = ({}) => {
 
   return (
     <Cont>
-      <ChatBox scrollEvents={true}>
+      <ChatBox scrollEvents={true} slot="fixed">
         {messages &&
           messages.map((msg) => (
             <Message
@@ -100,19 +100,20 @@ const ChatBox = styled(IonContent)`
   justify-content: flex-end;
   align-items: center;
   flex-direction: column;
-  height: calc(100% - 100px);
+  height: calc(100% - 120px);
   position: fixed;
-  bottom: 50px;
+  bottom: 70px;
 `;
 
 const ChatBar = styled.div`
   width: 100%;
   height: 50px;
+  padding: 0 20px;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   position: fixed;
-  bottom: 0;
+  bottom: 20px;
 `;
 
 const Input = styled.input`
@@ -122,14 +123,19 @@ const Input = styled.input`
   display: flex;
   justify-content: center;
   align-items: center;
+  outline: none;
+  border: none;
+  border-radius: 25px;
 `;
 
 const Button = styled.div`
   width: 50px;
   height: 50px;
-  background: #7878ff;
+  background: linear-gradient(180deg, #1E70FF 0%, #0046BF 100%);
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  border-radius: 25px;
+  position: absolute;''
 `;

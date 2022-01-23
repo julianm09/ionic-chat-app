@@ -92,7 +92,8 @@ const App: React.FC = () => {
     <IonApp>
       <IonReactRouter>
         {user ? (
-          <IonTabs>
+          <Tab1 handleSignOut={handleSignOut}/>
+/*           <IonTabs>
             <IonRouterOutlet>
               <Route exact path="/tab1">
                 <Tab1 handleSignOut={handleSignOut} />
@@ -121,7 +122,7 @@ const App: React.FC = () => {
                 <IonLabel>Tab 3</IonLabel>
               </IonTabButton>
             </IonTabBar>
-          </IonTabs>
+          </IonTabs> */
         ) : (
           <SignIn signIn={signIn} />
         )}

@@ -20,8 +20,13 @@ import { useCollectionData } from "react-firebase-hooks/firestore";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { sendOutline, sendSharp } from "ionicons/icons";
 import { auth } from "../config/firebase";
-import Message from './Message'
-import { IonIcon } from "@ionic/react";
+import Message from "./Message";
+import {
+  IonContent,
+  IonIcon,
+  IonInfiniteScroll,
+  IonInfiniteScrollContent,
+} from "@ionic/react";
 
 const Chat: React.FC = ({}) => {
   const [message, setMessage] = useState("");
@@ -32,7 +37,7 @@ const Chat: React.FC = ({}) => {
   console.log();
 
   const addMessage = async () => {
-    setMessage('')
+    setMessage("");
     try {
       const docRef = await addDoc(collection(db, "messages"), {
         id: id,
@@ -54,13 +59,22 @@ const Chat: React.FC = ({}) => {
 
   return (
     <Cont>
-      <ChatBox>
-        {messages && messages.map((msg) => <Message msg={msg.message} time={msg.createdAt} uid={msg.uid} name={msg.userName}/>)}
+      <ChatBox scrollEvents={true}>
+        {messages &&
+          messages.map((msg) => (
+            <Message
+              msg={msg.message}
+              time={msg.createdAt}
+              uid={msg.uid}
+              name={msg.userName}
+            />
+          ))}
       </ChatBox>
+
       <ChatBar>
         <Input value={message} onChange={(e) => setMessage(e.target.value)} />
         <Button onClick={addMessage}>
-          <IonIcon icon={sendSharp}/>
+          <IonIcon icon={sendSharp} />
         </Button>
       </ChatBar>
     </Cont>
@@ -78,13 +92,15 @@ const Cont = styled.div`
   flex-direction: column;
 `;
 
-const ChatBox = styled.div`
+const ChatBox = styled(IonContent)`
   width: 100%;
-  height: 100%;
   display: flex;
   justify-content: flex-end;
   align-items: center;
   flex-direction: column;
+  height: 100%;
+  position: fixed;
+  bottom: 50px;
 `;
 
 const ChatBar = styled.div`
@@ -93,6 +109,8 @@ const ChatBar = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  position: fixed;
+  bottom: 0;
 `;
 
 const Input = styled.input`
@@ -113,4 +131,3 @@ const Button = styled.div`
   align-items: center;
   cursor: pointer;
 `;
-

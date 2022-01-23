@@ -18,5 +18,5 @@ const Cont = styled.button`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background: #001aff;
+  color: #7878ff;
 `;

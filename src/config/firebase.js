@@ -10,6 +10,7 @@ import {
   signOut,
 } from "firebase/auth";
 import * as CloudStorage from "firebase/storage";
+import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCcAjioOzC0Tj_I-lfJmZ2Tj4z12oUZKqc",
@@ -24,6 +25,6 @@ const firebaseConfig = {
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
 
-export const db = getDatabase();
+export const db = getFirestore();
 export const auth = getAuth();
 export const cloud = CloudStorage.getStorage();

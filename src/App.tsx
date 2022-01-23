@@ -77,7 +77,7 @@ const App: React.FC = () => {
   };
   const [user] = useAuthState(auth);
   const handleSignOut = async (e: any) => {
-    if(user){
+    if (user) {
       signOut(auth)
         .then(() => {
           console.log(user);
@@ -85,12 +85,8 @@ const App: React.FC = () => {
         .catch((error) => {
           // An error happened.
         });
-      }
+    }
   };
-
-
-
-
 
   return (
     <IonApp>

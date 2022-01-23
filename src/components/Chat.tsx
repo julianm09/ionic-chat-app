@@ -61,6 +61,7 @@ const Chat: React.FC = ({}) => {
   return (
     <Cont>
       <ChatBox
+        className="ion-content"
         scrollEvents={true}
         overflow-scroll="false"
         scrollY={true}

@@ -1,31 +1,24 @@
 import "./ExploreContainer.css";
 import styled from "styled-components";
-import { app } from "../config/firebase";
 import {
   collection,
   addDoc,
-  getDocs,
-  Firestore,
   orderBy,
   limit,
   serverTimestamp,
   query,
 } from "firebase/firestore";
-import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
 import { db } from "../config/firebase";
 import { useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { useCollectionData } from "react-firebase-hooks/firestore";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { sendOutline, sendSharp } from "ionicons/icons";
+import { sendSharp } from "ionicons/icons";
 import { auth } from "../config/firebase";
 import Message from "./Message";
 import {
   IonContent,
   IonIcon,
-  IonInfiniteScroll,
-  IonInfiniteScrollContent,
 } from "@ionic/react";
 import { useRef } from "react";
 
@@ -61,8 +54,8 @@ const Chat: React.FC = ({}) => {
   const messageEnd = useRef<HTMLDivElement>(null);
 
   const scrollToBottom = () => {
-    if(messageEnd.current) {
-    messageEnd.current.scrollIntoView({ behavior: "smooth" });
+    if (messageEnd.current) {
+      messageEnd.current.scrollIntoView({ behavior: "smooth" });
     }
   };
 
@@ -110,7 +103,7 @@ const ChatBox = styled(IonContent)`
   justify-content: flex-end;
   align-items: center;
   flex-direction: column;
-  height: 100%;
+  height: calc(100% - 100px);
   position: fixed;
   bottom: 50px;
 `;

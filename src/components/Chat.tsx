@@ -27,6 +27,7 @@ import {
   IonInfiniteScroll,
   IonInfiniteScrollContent,
 } from "@ionic/react";
+import { useRef } from "react";
 
 const Chat: React.FC = ({}) => {
   const [message, setMessage] = useState("");
@@ -57,6 +58,16 @@ const Chat: React.FC = ({}) => {
 
   const [messages] = useCollectionData(q);
 
+  const messageEnd = useRef<HTMLDivElement>(null);
+
+  const scrollToBottom = () => {
+    if(messageEnd.current) {
+    messageEnd.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  useEffect(scrollToBottom, [messages]);
+
   return (
     <Cont>
       <ChatBox scrollEvents={true}>
@@ -69,6 +80,7 @@ const Chat: React.FC = ({}) => {
               name={msg.userName}
             />
           ))}
+        <div ref={messageEnd}></div>
       </ChatBox>
 
       <ChatBar>

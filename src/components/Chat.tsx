@@ -16,10 +16,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { sendSharp } from "ionicons/icons";
 import { auth } from "../config/firebase";
 import Message from "./Message";
-import {
-  IonContent,
-  IonIcon,
-} from "@ionic/react";
+import { IonContent, IonIcon } from "@ionic/react";
 import { useRef } from "react";
 
 const Chat: React.FC = ({}) => {
@@ -47,7 +44,7 @@ const Chat: React.FC = ({}) => {
   };
 
   const messageRef = collection(db, "messages");
-  const q = query(messageRef, orderBy("createdAt"), limit(20));
+  const q = query(messageRef, orderBy("createdAt"), limit(1000));
 
   const [messages] = useCollectionData(q);
 

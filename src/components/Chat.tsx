@@ -60,7 +60,7 @@ const Chat: React.FC = ({}) => {
 
   return (
     <Cont>
-      <ChatBox scrollEvents={true} slot="fixed">
+      <ChatBox scrollEvents={true}>
         {messages &&
           messages.map((msg) => (
             <Message

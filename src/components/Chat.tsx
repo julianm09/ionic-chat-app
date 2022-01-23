@@ -62,9 +62,8 @@ const Chat: React.FC = ({}) => {
     <Cont>
       <ChatBox
         scrollEvents={true}
-        onIonScrollStart={() => {}}
-        onIonScroll={() => {}}
-        onIonScrollEnd={() => {}}
+        overflow-scroll="false"
+        scrollY={true}
       >
         {messages &&
           messages.map((msg) => (

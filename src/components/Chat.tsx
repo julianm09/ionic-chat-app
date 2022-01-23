@@ -126,6 +126,8 @@ const Input = styled.input`
   outline: none;
   border: none;
   border-radius: 25px;
+  background: #ffffff;
+  color: #333;
 `;
 
 const Button = styled.div`

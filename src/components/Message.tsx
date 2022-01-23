@@ -64,6 +64,6 @@ const Bubble = styled.div`
   padding: 20px;
   margin: 10px 20px;
   border-radius: 25px;
-  box-shadow: 0 0 20px #ffffff8;
+  box-shadow: 0 0 20px #ffffff13;
   font-family: 'Outfit', sans-serif;
 `;

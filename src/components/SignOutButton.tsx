@@ -25,6 +25,7 @@ const Cont = styled.button`
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  border-radius: 5px 0 0 5px;
   background: linear-gradient(180deg, #1e70ff 0%, #0046bf 100%);
   color: white;
   font-size: 24px;

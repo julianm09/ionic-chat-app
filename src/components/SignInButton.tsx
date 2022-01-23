@@ -18,5 +18,12 @@ const Cont = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background: #7878ff;
+  background: linear-gradient(180deg, #1E70FF 0%, #0046BF 100%);
+  border-radius: 25px;
+  font-family: 'Outfit', sans-serif;
+  cursor: pointer;
+
+  &:hover{
+    box-shadow: 0 0 20px #ffffff33;
+  }
 `;

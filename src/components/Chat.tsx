@@ -75,7 +75,7 @@ const Chat: React.FC = ({}) => {
               name={msg.userName}
             />
           ))}
-        
+        <div ref={messageEnd}></div>
       </ChatBox>
 
       <ChatBar>

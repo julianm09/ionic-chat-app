@@ -30,6 +30,7 @@ import {
   signOut,
 } from "firebase/auth";
 import { app } from "./config/firebase";
+import './App.scss';
 
 import "@ionic/react/css/core.css";
 /* Basic CSS for apps built with Ionic */

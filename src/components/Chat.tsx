@@ -104,6 +104,7 @@ const ChatBox = styled(IonContent)`
   position: fixed;
   bottom: 70px;
   z-index: 100;
+
 `;
 
 const ChatBar = styled.div`
